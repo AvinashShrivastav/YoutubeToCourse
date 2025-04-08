@@ -17,120 +17,147 @@ import {
   Zap,
   MessageCircle,
 } from "lucide-react";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Header */}
-      <header className=" bg-white text-black">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-10">
-            <Link
-              href="/"
-              className="text-xl font-bold"
-              style={{ fontSize: "2rem" }}
-            >
-              Transform
-            </Link>
-            <nav className="hidden md:flex items-center gap-6">
-              <Link href="#" className="text-md hover:text-purple-400">
-                Features
-              </Link>
-              <Link href="#" className="text-md hover:text-purple-400">
-                Pricing
-              </Link>
-              <Link href="#" className="text-md hover:text-purple-400">
-                How it Works
-              </Link>
-              <Link href="#" className="text-md hover:text-purple-400">
-                About
-              </Link>
-              <Link href="#" className="text-md hover:text-purple-400">
-                Blog
-              </Link>
-              <Link href="#" className="text-md hover:text-purple-400">
-                Contact
-              </Link>
-            </nav>
-          </div>
-          <div className="flex items-center gap-4">
-            <Button
-              variant="ghost"
-              size="sm"
-              className="text-white hover:text-purple-400 "
-            >
-              Login
-            </Button>
-            <Button
-              size="sm"
-              className="bg-purple-600 hover:bg-purple-700 text-white border-white hover:bg-white/10"
-              style={{ paddingLeft: "1.5rem", paddingRight: "1.5rem" }}
-            >
-              Sign Up
-            </Button>
-            <Button variant="ghost" size="icon" className="md:hidden">
-              <Menu className="h-5 w-5" />
-            </Button>
-          </div>
-        </div>
-      </header>
+      <header className="bg-white text-black shadow-md">
+  <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+    <div className="flex items-center gap-10">
+      <Link href="/" className="text-2xl font-bold">
+        Transform
+      </Link>
+
+      {/* Desktop nav */}
+      <nav className="hidden md:flex items-center gap-6">
+        <Link href="#" className="text-md hover:text-purple-400">
+          Features
+        </Link>
+        <Link href="#" className="text-md hover:text-purple-400">
+          Pricing
+        </Link>
+        <Link href="#" className="text-md hover:text-purple-400">
+          How it Works
+        </Link>
+        <Link href="#" className="text-md hover:text-purple-400">
+          About
+        </Link>
+        <Link href="#" className="text-md hover:text-purple-400">
+          Blog
+        </Link>
+        <Link href="#" className="text-md hover:text-purple-400">
+          Contact
+        </Link>
+      </nav>
+    </div>
+
+    {/* Mobile toggle */}
+    <div className="md:hidden flex items-center gap-4">
+      <input
+        type="checkbox"
+        id="menu-toggle"
+        className="hidden peer"
+      />
+      <label htmlFor="menu-toggle" className="cursor-pointer">
+        <Menu className="h-6 w-6" />
+      </label>
+    </div>
+
+    {/* Desktop buttons */}
+    <div className="hidden md:flex items-center gap-4">
+      <Button variant="ghost" size="sm" className="hover:text-purple-400">
+        Login
+      </Button>
+      <Button
+        size="sm"
+        className="bg-purple-600 hover:bg-purple-700 text-white px-6"
+      >
+        Sign Up
+      </Button>
+    </div>
+  </div>
+
+  {/* Mobile menu */}
+  <div className="peer-checked:block hidden md:hidden px-4 pb-4">
+    <nav className="flex flex-col gap-4 mt-2">
+      <Link href="#" className="text-md hover:text-purple-400">
+        Features
+      </Link>
+      <Link href="#" className="text-md hover:text-purple-400">
+        Pricing
+      </Link>
+      <Link href="#" className="text-md hover:text-purple-400">
+        How it Works
+      </Link>
+      <Link href="#" className="text-md hover:text-purple-400">
+        About
+      </Link>
+      <Link href="#" className="text-md hover:text-purple-400">
+        Blog
+      </Link>
+      <Link href="#" className="text-md hover:text-purple-400">
+        Contact
+      </Link>
+      <div className="flex flex-col gap-2 mt-2">
+        <Button variant="ghost" size="sm" className="hover:text-purple-400">
+          Login
+        </Button>
+        <Button
+          size="sm"
+          className="bg-purple-600 hover:bg-purple-700 text-white"
+        >
+          Sign Up
+        </Button>
+      </div>
+    </nav>
+  </div>
+</header>
+
 
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="bg-neutral-50 dark:bg-neutral-900 text-white py-16">
-          <div className="container mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
-            <div className="space-y-6">
-              <h1
-                className="text-4xl md:text-5xl font-bold leading-tight "
-                style={{
-                  fontSize: "5rem",
-                  lineHeight: 1,
-                  fontWeight: 700,
-                  fontFamily: "Sora, sans-serif",
-                }}
-              >
-                Transform YouTube Videos Into Structured Courses
-              </h1>
-              <p className="text-gray-300 text-lg md:text-xl text-neutral-200 mb-8">
-                Convert any YouTube content into organized, interactive learning
-                experiences
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  className="bg-purple-600 hover:bg-purple-700 bg-primary hover:bg-primary/90 text-white font-medium py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1"
-                  style={{
-                    borderRadius: "0.5rem",
-                    width: "30%",
-                    height: "3rem",
-                    fontSize: "larger",
-                  }}
-                >
-                  Get Started
-                </Button>
-                <Button
-                  variant="outline"
-                  className="text-white border-white hover:bg-white/10"
-                  style={{
-                    borderRadius: "0.5rem",
-                    width: "50%",
-                    height: "3rem",
-                    fontSize: "larger",
-                  }}
-                >
-                  Learn More
-                </Button>
-              </div>
-            </div>
-            <div className="relative h-[300px] md:h-[600px]">
-              <Image
-                src="/images/man.jpeg"
-                alt="Professional in suit"
-                fill
-                className="object-cover rounded-lg"
-              />
-            </div>
-          </div>
-        </section>
+        <section className="bg-neutral-50  dark:bg-neutral-900 text-white py-16">
+  <div className="container mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
+    <div className="space-y-6">
+      <h1
+        className="text-[2.5rem] md:text-[5rem] leading-[1] font-bold font-[Sora] "
+      >
+        Transform YouTube Videos Into Structured Courses
+      </h1>
+
+      <p className="text-lg md:text-xl text-neutral-200 mb-8">
+        Convert any YouTube content into organized, interactive learning
+        experiences
+      </p>
+
+      <div className="flex flex-col sm:flex-row gap-4">
+        <Button
+          className="bg-purple-600 hover:bg-purple-700 bg-primary hover:bg-primary/90 text-white font-medium py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 w-1/2 text-lg h-12"
+        >
+          Get Started
+        </Button>
+        <Button
+          variant="outline"
+          className="text-white border-white hover:bg-white/10 rounded-lg w-1/2 text-lg h-12"
+        >
+          Learn More
+        </Button>
+      </div>
+    </div>
+
+    <div className="relative h-[300px] md:h-[600px]">
+      <Image
+        src="/images/man.jpeg"
+        alt="Professional in suit"
+        fill
+        className="object-cover rounded-lg"
+      />
+    </div>
+  </div>
+</section>
+
 
         {/* Features Section */}
         <section className="py-16 bg-neutral-50 dark:bg-neutral-900">
@@ -250,8 +277,8 @@ export default function Home() {
                     <Input
                       type="text"
                       placeholder="https://youtube.com/watch?v=example"
-                      class="w-full bg-transparent outline-none text-gray-700 dark:text-gray-200"
-                      disabled=""
+                      className="w-full bg-transparent outline-none text-gray-700 dark:text-gray-200"
+                      disabled={true}
                     />
                     <button className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition-colors">
                       Import
@@ -399,9 +426,9 @@ export default function Home() {
                           d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                         ></path>
                       </svg>
-                      <p className="text-gray-700 dark:text-gray-200 font-medium">
-                        Detailed Notes
-                      </p>
+                      <p className="text-sm sm:text-base text-gray-700 dark:text-gray-200 font-medium">
+  Detailed Notes
+</p>
                     </div>
                     <div className="bg-white dark:bg-neutral-700 p-4 rounded-lg border border-gray-200 dark:border-neutral-600 text-center">
                       <svg
@@ -418,7 +445,7 @@ export default function Home() {
                           d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                         ></path>
                       </svg>
-                      <p className="text-gray-700 dark:text-gray-200 font-medium">
+                      <p className="text-sm sm:text-base text-gray-700 dark:text-gray-200 font-medium">
                         Interactive Quizzes
                       </p>
                     </div>
@@ -437,7 +464,7 @@ export default function Home() {
                           d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
                         ></path>
                       </svg>
-                      <p className="text-gray-700 dark:text-gray-200 font-medium">
+                      <p className="text-gray-700 dark:text-gray-200 font-medium sm:font-smaller">
                         Progress Analytics
                       </p>
                     </div>
@@ -456,7 +483,7 @@ export default function Home() {
                           d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
                         ></path>
                       </svg>
-                      <p className="text-gray-700 dark:text-gray-200 font-medium">
+                      <p className="text-sm sm:text-base text-gray-700 dark:text-gray-200 font-medium">
                         Visual Summaries
                       </p>
                     </div>
@@ -468,8 +495,8 @@ export default function Home() {
                   src="/images/coat.png"
                   alt="/"
                   className="w-full h-auto rounded-xl shadow-lg object-cover"
-                  width="5048"
-                  height="3370"
+                  width={5048}
+                  height={3370}
                 />
               </div>
             </div>
@@ -623,8 +650,8 @@ export default function Home() {
                     src="/images/help.png"
                     alt="/career"
                     className="w-full h-auto rounded-lg shadow-lg"
-                    width="5048"
-                    height="3370"
+                    width={5048}
+                    height={3370}
                   />
                 </div>
               </div>
@@ -952,184 +979,184 @@ export default function Home() {
             </div>
           </div>
 
-        
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="rounded-lg overflow-hidden shadow-2xl">
-                <Image
-                  src="./images/coat.png"
-                  alt="./"
-                  className="w-full h-full object-cover"
-                  width="5048"
-                  height="3370"
-                />
-              </div>
-
-              <div className="space-y-6">
-                <h3 className="text-2xl md:text-3xl font-semibold">
-                  Try It Now
-                </h3>
-                <p className="text-xl text-neutral-300">
-                  Experience the power of AI-enhanced learning with any
-                  educational YouTube video.
-                </p>
-
-                <div className="bg-neutral-800 p-6 rounded-lg">
-                  <form id="demo-form" className="space-y-4">
-                    <div>
-                      <Label className="block text-sm font-medium mb-2">
-                        YouTube Video URL
-                      </Label>
-                      <Input
-                        type="url"
-                        id="youtube-url"
-                        placeholder="https://www.youtube.com/watch?v=..."
-                        className="w-full bg-neutral-700 border border-neutral-600 rounded-lg px-4 py-3 text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 mb-2"
-                      />
-                    </div>
-                    <button
-                      type="submit"
-                      className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300"
-                    >
-                      Generate Course
-                    </button>
-                  </form>
-                </div>
-
-                <div className="flex items-center space-x-2 text-neutral-300">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-indigo-400"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>No sign-up required for demo</span>
-                </div>
-              </div>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold mb-6">Follow Our Progress</h3>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="rounded-lg overflow-hidden shadow-2xl">
               <Image
-                src="/placeholder.svg?height=200&width=400"
-                alt="Product screenshot"
-                width={400}
-                height={200}
-                className="rounded-lg mb-4"
+                src="./images/laptop-typing.png"
+                alt="./"
+                className="w-full h-full object-cover"
+                width="5048"
+                height="3370"
               />
-              <div className="flex gap-4 mb-6">
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="rounded-full border-gray-700 hover:bg-gray-800"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-5 w-5"
+            </div>
+
+            <div className="space-y-6">
+              <h3 className="text-2xl md:text-3xl font-semibold">Try It Now</h3>
+              <p className="text-xl text-neutral-300">
+                Experience the power of AI-enhanced learning with any
+                educational YouTube video.
+              </p>
+
+              <div className="bg-neutral-800 p-6 rounded-lg">
+                <form id="demo-form" className="space-y-4">
+                  <div>
+                    <Label className="block text-sm font-medium mb-2">
+                      YouTube Video URL
+                    </Label>
+                    <Input
+                      type="url"
+                      id="youtube-url"
+                      placeholder="https://www.youtube.com/watch?v=..."
+                      className="w-full bg-neutral-700 border border-neutral-600 rounded-lg px-4 py-3 text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 mb-2"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300"
                   >
-                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                  </svg>
-                </Button>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="rounded-full border-gray-700 hover:bg-gray-800"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-5 w-5"
-                  >
-                    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
-                  </svg>
-                </Button>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="rounded-full border-gray-700 hover:bg-gray-800"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-5 w-5"
-                  >
-                    <rect
-                      width="20"
-                      height="20"
-                      x="2"
-                      y="2"
-                      rx="5"
-                      ry="5"
-                    ></rect>
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
-                  </svg>
-                </Button>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="rounded-full border-gray-700 hover:bg-gray-800"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-5 w-5"
-                  >
-                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                    <rect width="4" height="12" x="2" y="9"></rect>
-                    <circle cx="4" cy="4" r="2"></circle>
-                  </svg>
-                </Button>
+                    Generate Course
+                  </button>
+                </form>
               </div>
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-purple-600" />
-                  <span>Weekly product updates</span>
+
+              <div className="flex items-center space-x-2 text-neutral-300">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 text-indigo-400"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span>No sign-up required for demo</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className="text-center mb-12 mt-12">
+              <h2 className="text-4xl font-bold mb-4">Get in Touch</h2>
+              <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+                Have questions about our YouTube Course Maker? We're here to
+                help you transform video content into structured learning
+                experiences.
+              </p>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-20">
+          
+          <div className="text-left bg-neutral-800 p-8 rounded-xl shadow-lg">
+            <h3 className="text-2xl font-semibold mb-6 mt-6">Send Us a Message</h3>
+            <form id="contactForm" className="space-y-6">
+              <div>
+                <Label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">Full Name</Label>
+                <Input type="text" id="name" name="name" placeholder="Enter your name" className="w-full px-4 py-3 bg-neutral-700 border border-neutral-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white" required={true}/>
+              </div>
+              
+              <div>
+                <Label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">Email Address</Label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" className="w-full px-4 py-3 bg-neutral-700 border border-neutral-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white" required={true}/>
+              </div>
+              
+              <div>
+                <Label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-1">Subject</Label>
+                <select id="subject" name="subject" className="w-full px-4 py-3 bg-neutral-700 border border-neutral-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white">
+                  <option value="general">General Inquiry</option>
+                  <option value="support">Technical Support</option>
+                  <option value="feedback">Feedback</option>
+                  <option value="partnership">Partnership Opportunities</option>
+                </select>
+              </div>
+              
+              <div>
+                <Label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">Message</Label>
+                <Textarea id="message" name="message"  placeholder="What would you like to know?" className="w-full px-4 py-3 bg-neutral-700 border border-neutral-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"></Textarea>
+              </div>
+              
+              <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition duration-300 transform hover:translate-y-[-2px] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                Send Message
+              </button>
+            </form>
+          </div>
+          
+        
+          <div className="space-y-8">
+            <div>
+              <h3 className="text-2xl font-semibold mb-6">Other Ways to Connect</h3>
+              
+              <Image src="/images/laptop.png"alt="./" className="w-full h-48 object-cover rounded-lg mb-6" width={504}
+                  height={3370}/>
+             
+            </div>
+            
+            <div className="space-y-6">
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
                 </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-purple-600" />
-                  <span>Early access to new features</span>
+                <div className="text-left">
+                  <h4 className="text-lg font-medium">Email Us</h4>
+                  <p className="text-gray-300">support@youtubecoursify.com</p>
                 </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-purple-600" />
-                  <span>Educational content and tips</span>
+              </div>
+              
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <div className="text-left">
+                  <h4 className="text-lg font-medium">Call Us</h4>
+                  <p className="text-gray-300">+1 (555) 123-4567</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+                <div className="text-left">
+                  <h4 className="text-lg font-medium">Help Center</h4>
+                  <p className="text-gray-300">Visit our knowledge base for FAQs and tutorials</p>
                 </div>
               </div>
             </div>
-          
+            
+            <div className="text-left">
+              <h4 className="text-lg font-medium mb-4">Follow Us</h4>
+              <div className="flex space-x-4">
+                <a href="#" className="w-10 h-10 bg-neutral-800 hover:bg-blue-600 rounded-full flex items-center justify-center transition duration-300">
+                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"></path>
+                  </svg>
+                </a>
+                <a href="#" className="w-10 h-10 bg-neutral-800 hover:bg-blue-600 rounded-full flex items-center justify-center transition duration-300">
+                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+                  </svg>
+                </a>
+                <a href="#" className="w-10 h-10 bg-neutral-800 hover:bg-blue-600 rounded-full flex items-center justify-center transition duration-300">
+                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd"></path>
+                  </svg>
+                </a>
+                <a href="#" className="w-10 h-10 bg-neutral-800 hover:bg-blue-600 rounded-full flex items-center justify-center transition duration-300">
+                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z" clip-rule="evenodd"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+            </div>
+          </div>
 
           <div className="pt-8 border-t border-gray-800 text-center text-sm text-white-500">
             <p>© 2023 Transform. All rights reserved.</p>
